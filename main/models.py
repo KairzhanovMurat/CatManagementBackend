@@ -35,7 +35,7 @@ class Cat(models.Model):
     objects = managers.CatManager()
 
     def __str__(self):
-        return f'{self.name}'
+        return f'{self.name} {self.age} {self.color}'
 
     class Meta:
         verbose_name = 'кошка'
@@ -51,7 +51,7 @@ class CatRate(models.Model):
                             related_name='cat_rates')
 
     def __str__(self):
-        return f'{self.user} {self.cat}'
+        return f'{self.user} {self.rate}'
 
     class Meta:
         verbose_name = 'оценка'

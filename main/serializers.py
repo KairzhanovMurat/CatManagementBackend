@@ -57,8 +57,8 @@ class CatListSerializer(BaseCatSerializer):
     breeds = serializers.StringRelatedField(many=True, read_only=True)
     average_rating = serializers.SerializerMethodField()
 
-    def get_average_rating(self, obj):
-        return obj.average_rating
+    def get_average_rating(self, obj) -> float:
+        return round(obj.average_rating, 1)
 
     class Meta(BaseCatSerializer.Meta):
         fields = BaseCatSerializer.Meta.fields + ['owner', 'breeds', 'average_rating']
